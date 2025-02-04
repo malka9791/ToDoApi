@@ -18,29 +18,18 @@ builder.Services.AddDbContext<ToDoDbContext>(options =>
 ));
 
 //swagger
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "My API",
-        Version = "v1"
-    });
-});
 builder.Services.AddEndpointsApiExplorer();
 
 
 var app = builder.Build();
 //swagger
-if (app.Environment.IsDevelopment())
+//if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
-        options.RoutePrefix = string.Empty; 
-    });
+    app.UseSwaggerUI();
 }
 //function
+
 app.MapGet("/items",async (ToDoDbContext DBcontext)=>
 {
     // var items = await ; // שליפת כל ה-items ממסד הנתונים
@@ -79,4 +68,5 @@ app.MapDelete("/items/{Id}",async
 }
 });
 app.UseCors("MyPolicy");
+app.MapGet("/", () => "Application is running");
 app.Run();
