@@ -1856,11 +1856,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user1\\Documents\\מלי\\שנה ב\\פרקטיקוד\\TodoApi\\TodoApi.csproj",
+      "projectUniqueName": "C:\\Users\\user1\\Documents\\מלי\\שנה ב\\פרקטיקוד\\ToDoApi\\TodoApi.csproj",
       "projectName": "TodoApi",
-      "projectPath": "C:\\Users\\user1\\Documents\\מלי\\שנה ב\\פרקטיקוד\\TodoApi\\TodoApi.csproj",
+      "projectPath": "C:\\Users\\user1\\Documents\\מלי\\שנה ב\\פרקטיקוד\\ToDoApi\\TodoApi.csproj",
       "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user1\\Documents\\מלי\\שנה ב\\פרקטיקוד\\TodoApi\\obj\\",
+      "outputPath": "C:\\Users\\user1\\Documents\\מלי\\שנה ב\\פרקטיקוד\\ToDoApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user1\\AppData\\Roaming\\NuGet\\NuGet.Config",
