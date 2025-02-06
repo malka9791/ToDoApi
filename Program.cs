@@ -56,9 +56,7 @@ app.MapGet("/items/{Id}",async (int Id,ToDoDbContext DBcontext)=>
 });
 app.MapPost("/items",async (string name,ToDoDbContext Db)=>
 {
-    Item item = new Item();
-    item.Name = name;
-    Db.Items.Add(item);
+Db.Items.Add(new Item{ Name=name});
     await Db.SaveChangesAsync();
 });
 app.MapPut("/items/{id}",async (int id,Item item,ToDoDbContext Db)=>
