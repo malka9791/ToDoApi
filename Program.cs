@@ -13,7 +13,7 @@ builder.Services.AddCors(opt => opt.AddPolicy("MyPolicy", policy =>
 //database
 builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseMySql(
-        builder.Configuration.GetConnectionString("practicode3"),
+        builder.Configuration.GetConnectionString("biyrdoodqvbnf3g9axwi"),
         new MySqlServerVersion(new Version(7, 0, 0))
 ));
 
@@ -54,8 +54,10 @@ app.MapGet("/items/{Id}",async (int Id,ToDoDbContext DBcontext)=>
      var item = await DBcontext.Items.FirstOrDefaultAsync(a=>a.Id==Id); // שליפת כל ה-items ממסד הנתונים
     return Results.Ok(item);
 });
-app.MapPost("/items",async (Item item,ToDoDbContext Db)=>
+app.MapPost("/items",async (string name,ToDoDbContext Db)=>
 {
+    Item item = new Item();
+    item.Name = name;
     Db.Items.Add(item);
     await Db.SaveChangesAsync();
 });
