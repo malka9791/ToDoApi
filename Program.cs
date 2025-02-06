@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using TodoApi;
 using Microsoft.OpenApi.Models;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 //addcors
@@ -54,9 +55,9 @@ app.MapGet("/items/{Id}",async (int Id,ToDoDbContext DBcontext)=>
      var item = await DBcontext.Items.FirstOrDefaultAsync(a=>a.Id==Id); // שליפת כל ה-items ממסד הנתונים
     return Results.Ok(item);
 });
-app.MapPost("/items",async (string name,ToDoDbContext Db)=>
+app.MapPost("/items",async (Item item,ToDoDbContext Db)=>
 {
-Db.Items.Add(new Item{ Name=name});
+    Db.Items.Add(item);
     await Db.SaveChangesAsync();
 });
 app.MapPut("/items/{id}",async (int id,Item item,ToDoDbContext Db)=>
