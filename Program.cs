@@ -61,12 +61,12 @@ app.MapPost("/items",async (Item item,ToDoDbContext Db)=>
     Db.Items.Add(item);
     await Db.SaveChangesAsync();
 });
-app.MapPut("/items/{id}",async (int id,bool isComplete,ToDoDbContext Db)=>
+app.MapPut("/items/{id}",async (int id,Item item,ToDoDbContext Db)=>
 {
    var itemToUpdate=await Db.Items.FirstOrDefaultAsync(a=>a.Id==id);
     if(itemToUpdate!=null)
     {
-        itemToUpdate.IsComplete=isComplete;
+        itemToUpdate.IsComplete=item.IsComplete;
     }
     await Db.SaveChangesAsync();
 });
